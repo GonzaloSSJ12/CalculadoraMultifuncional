@@ -1,0 +1,297 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Variables para temas */
+  :root {
+    --bg-color: #d6d6d6; /* Fondo gris muy claro, casi blanco */
+    --text-color: #333;
+    --header-bg: #007bff;
+    --header-text: #fff;
+    --btn-bg: #007bff;
+    --btn-text: #fff;
+    --btn-bg-hover: #0056b3;
+    --section-bg: #fff;
+    --shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  body.dark-mode {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --header-bg: #1e1e1e;
+    --header-text: #e0e0e0;
+    --btn-bg: #1e88e5;
+    --btn-text: #fff;
+    --btn-bg-hover: #1565c0;
+    --section-bg: #1e1e1e;
+    --shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+  
+  /* Tipografía y fondo */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  /* Botón modo oscuro */
+  .toggle-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    padding: 8px;
+    font-size: 1.2rem;
+    border: none;
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 101;
+    transition: background-color 0.3s;
+  }
+  .toggle-btn:hover {
+    background: var(--btn-bg-hover);
+  }
+  
+  /* Botón scroll-to-top */
+  .scroll-top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    border: none;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    z-index: 100;
+    transition: background-color 0.3s;
+  }
+  .scroll-top-btn:hover {
+    background-color: var(--btn-bg-hover);
+  }
+  
+  /* Encabezado y navegación */
+  header {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  }
+  .header-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 20px;
+  }
+  .logo-container {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+  }
+  .logo {
+    height: 1.5cm;
+    width: 1.5cm;
+    padding: 5px;
+  }
+  /* Si deseas mostrar el nombre de la web junto al logo, utiliza esta clase */
+  /*
+  .nav-brand-text {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--header-text);
+    margin-left: 10px;
+  }
+  */
+  .nav-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+  }
+  .nav-list {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+  .nav-list li a {
+    color: var(--header-text);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+  }
+  .nav-list li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  .header-right {
+    display: flex;
+    align-items: center;
+  }
+  .language-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(255,255,255,0.2);
+    padding: 3px 6px;
+    border-radius: 8px;
+  }
+  .lang-icon {
+    font-size: 1.2rem;
+  }
+  
+  /* Menú hamburguesa (oculto en pantallas grandes) */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    z-index: 110;
+  }
+  .hamburger .bar {
+    height: 3px;
+    width: 25px;
+    background-color: var(--header-text);
+    margin: 4px 0;
+    transition: 0.3s;
+  }
+  
+  /* Contenido principal */
+  main {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+  }
+  section {
+    background: var(--section-bg);
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: background 0.3s, box-shadow 0.3s;
+    scroll-margin-top: 80px;
+  }
+  section h1, section h2, section h3 {
+    margin-bottom: 10px;
+  }
+  section h2 {
+    font-size: 1.8rem;
+    color: var(--header-bg);
+  }
+  body.dark-mode section h2 {
+    color: var(--header-text);
+  }
+  section h3 {
+    font-size: 1.3rem;
+    color: var(--btn-bg);
+  }
+  section p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+  }
+  
+  /* Calculadoras */
+  .calculator-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .calculator-container input,
+  .calculator-container select {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  .calculator-container button {
+    padding: 10px;
+    font-size: 1rem;
+    background-color: var(--btn-bg);
+    color: var(--btn-text);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .calculator-container button:hover {
+    background-color: var(--btn-bg-hover);
+  }
+  .result {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: inherit;
+  }
+  
+  /* Sub-calculadoras en directorio */
+  .sub-calculator {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Pie de página */
+  footer {
+    background-color: var(--header-bg);
+    color: var(--header-text);
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 20px;
+  }
+  .footer-content {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .footer-logo {
+    height: 30px;
+    width: auto;
+  }
+  
+  /* Responsividad */
+  @media (max-width: 768px) {
+    .header-container {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .hamburger {
+      display: flex;
+    }
+    .nav-container {
+      width: 100%;
+      display: none;
+    }
+    .nav-container.active {
+      display: block;
+    }
+    .nav-list {
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      padding: 10px 0;
+    }
+    section h2 {
+      font-size: 1.5rem;
+    }
+  }

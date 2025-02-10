@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <!-- Vista adaptable y optimizada para móviles e iPhone -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <!-- SEO Meta Tags -->
+  <title>Calculadora Multifuncional</title>
+  <meta name="description" content="Calculadora Multifuncional es la herramienta online gratuita definitiva para calcular porcentajes, descuentos, divisas, IVA, interés simple y muchas otras operaciones financieras. Optimizada para móviles y PC, disponible en Español, Inglés y Portugués.">
+  <meta name="keywords" content="calculadora multifuncional, calcular porcentaje, descuento, conversor de divisas, calcular IVA, interés simple, herramienta online, finanzas, cálculos, calcular propina, añadir porcentaje, cambio porcentual, convertir fracciones a porcentaje">
+  <meta name="author" content="Calculadora Multifuncional">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.tusitio.com/calculadora-multifuncional">
+  
+  <!-- Favicon y Apple Touch Icon -->
+  <link rel="icon" href="Images/logoweb-sinfondo.png" type="image/png">
+  <link rel="apple-touch-icon" href="Images/logoweb-sinfondo.png">
+  
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Calculadora Multifuncional: Porcentajes, Descuentos, Divisas y Más">
+  <meta property="og:description" content="Utiliza nuestra calculadora multifuncional para calcular porcentajes, descuentos, divisas, IVA, interés simple y otras operaciones financieras de forma rápida y precisa.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.tusitio.com/calculadora-multifuncional">
+  <meta property="og:image" content="https://www.tusitio.com/imagen-calculadora.jpg">
+  
+  <!-- Enlace al CSS externo -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Botón para modo oscuro -->
+  <button id="darkToggle" class="toggle-btn" title="Cambiar a modo oscuro/claro">🌙</button>
+  
+  <!-- Botón scroll-to-top -->
+  <button id="scrollTopBtn" class="scroll-top-btn" title="Volver al inicio">↑</button>
+  
+  <!-- Encabezado y barra de navegación -->
+  <header>
+    <div class="header-container">
+      <div class="logo-container">
+        <img src="Images/logoweb-sinfondo.png" alt="Logo de la Empresa" class="logo">
+        <!-- Si deseas mostrar el nombre de la web junto al logo, descomenta la siguiente línea -->
+        <!-- <div class="nav-brand-text">Calculadora Multifuncional</div> -->
+      </div>
+      <!-- Botón de menú hamburguesa para móviles -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="Menú de navegación">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <nav class="nav-container" id="navContainer">
+        <ul class="nav-list">
+          <li><a href="#percentage" class="nav-link" data-key="navPercentage">Porcentajes</a></li>
+          <li><a href="#discount" class="nav-link" data-key="navDiscount">Descuentos</a></li>
+          <li><a href="#currency" class="nav-link" data-key="navCurrency">Divisas</a></li>
+          <li><a href="#directory" class="nav-link" data-key="navDirectory">Directorio</a></li>
+          <li><a href="#iva" class="nav-link" data-key="navIVA">IVA</a></li>
+          <li><a href="#interest" class="nav-link" data-key="navInterest">Interés Simple</a></li>
+        </ul>
+      </nav>
+      <div class="header-right">
+        <div class="language-container">
+          <span class="lang-icon" title="Seleccionar idioma">🌐</span>
+          <select id="languageSelect">
+            <option value="es">Español</option>
+            <option value="en">English</option>
+            <option value="pt">Português</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Contenido principal -->
+  <main>
+    <!-- Introducción principal -->
+    <section id="intro">
+      <h1>Calculadora Multifuncional</h1>
+      <p>
+        Bienvenidos a Calculadora Multifuncional, la herramienta online gratuita definitiva para realizar cálculos financieros y porcentuales. Aquí encontrarás una amplia gama de calculadoras: desde porcentajes y descuentos, hasta conversión de divisas, IVA, interés simple y mucho más. Nuestra web está optimizada para dispositivos móviles y PC, y está disponible en Español, Inglés y Portugués.
+      </p>
+    </section>
+    
+    <!-- Sección: Calculadora de Porcentajes -->
+    <section id="percentage">
+      <h2 data-key="headingPercentage">Calculadora de Porcentajes</h2>
+      <h3>¿Qué es calcular un porcentaje?</h3>
+      <p>
+        Esta herramienta te permite calcular el porcentaje de una cantidad, es decir, obtener el valor que representa X% de un número dado. Es útil para calcular propinas, aumentos o para comparar partes de un total.
+      </p>
+      <div class="calculator-container">
+        <input type="number" id="percInput" placeholder="Porcentaje (%)" data-key-placeholder="percPlaceholder">
+        <input type="number" id="valueInput" placeholder="Valor base" data-key-placeholder="valuePlaceholder">
+        <button onclick="calculatePercentage()" data-key="btnCalculatePercentage">Calcular Porcentaje</button>
+        <div class="result" id="percResult"></div>
+      </div>
+    </section>
+    
+    <!-- Sección: Calculadora de Descuentos -->
+    <section id="discount">
+      <h2 data-key="headingDiscount">Calculadora de Descuentos</h2>
+      <h3>¿Cómo calcular un descuento?</h3>
+      <p>
+        Esta calculadora te ayuda a restar un porcentaje de un valor. Es ideal para calcular el precio final después de aplicar un descuento en tiendas o promociones.
+      </p>
+      <div class="calculator-container">
+        <input type="number" id="originalPrice" placeholder="Precio original" data-key-placeholder="origPricePlaceholder">
+        <input type="number" id="discountPerc" placeholder="Descuento (%)" data-key-placeholder="discountPercPlaceholder">
+        <button onclick="calculateDiscount()" data-key="btnCalculateDiscount">Calcular Descuento</button>
+        <div class="result" id="discountResult"></div>
+      </div>
+    </section>
+    
+    <!-- Sección: Conversor de Divisas -->
+    <section id="currency">
+      <h2 data-key="headingCurrency">Conversor de Divisas</h2>
+      <h3>¿Cómo convertir entre monedas?</h3>
+      <p>
+        Con nuestro conversor de divisas podrás transformar montos entre diferentes monedas (USD, EUR, ARS, entre otras) usando tasas actualizadas en tiempo real.
+      </p>
+      <div class="calculator-container">
+        <input type="number" id="amount" placeholder="Cantidad" data-key-placeholder="amountPlaceholder">
+        <select id="fromCurrency">
+          <option value="USD">USD</option>
+          <option value="ARS">ARS</option>
+          <option value="EUR">EUR</option>
+        </select>
+        <select id="toCurrency">
+          <option value="USD">USD</option>
+          <option value="ARS">ARS</option>
+          <option value="EUR">EUR</option>
+        </select>
+        <button onclick="convertCurrency()" data-key="btnConvertCurrency">Convertir Divisa</button>
+        <div class="result" id="currencyResult"></div>
+      </div>
+    </section>
+    
+    <!-- Sección: Directorio de Calculadoras Adicionales -->
+    <section id="directory">
+      <h2 data-key="headingDirectory">Directorio de Calculadoras Adicionales</h2>
+      <h3>Herramientas Complementarias</h3>
+      <p data-key="descDirectory">
+        Encuentra a continuación más herramientas de cálculos porcentuales: añadir porcentaje a una cantidad, cambio porcentual, conversión de porcentaje a decimal, conversión de fracciones a porcentajes, calcular qué porcentaje representa una parte del total y calcular el total a partir de un porcentaje.
+      </p>
+      
+      <!-- Añadir un porcentaje a una cantidad -->
+      <div class="sub-calculator" id="addPercentage">
+        <h3 data-key="headingAddPercentage">Añadir un porcentaje a una cantidad</h3>
+        <p data-key="descAddPercentage">
+          Si tienes una cantidad inicial y deseas incrementarla en un cierto porcentaje, esta herramienta calculará la cantidad final. Útil, por ejemplo, para calcular propinas.
+        </p>
+        <div class="calculator-container">
+          <input type="number" id="initialAdd" placeholder="Cantidad inicial" data-key-placeholder="origAddPlaceholder">
+          <input type="number" id="addPerc" placeholder="Porcentaje a añadir (%)" data-key-placeholder="addPercPlaceholder">
+          <button onclick="addPercentage()" data-key="btnAddPercentage">Calcular Añadido</button>
+          <div class="result" id="addResult"></div>
+        </div>
+      </div>
+      
+      <!-- Cambio porcentual -->
+      <div class="sub-calculator" id="changePercentage">
+        <h3 data-key="headingChangePercentage">Cambio porcentual</h3>
+        <p data-key="descChangePercentage">
+          Determina el cambio porcentual entre dos valores. Puede ser positivo (aumento) o negativo (disminución). Ideal para comparar precios o estadísticas.
+        </p>
+        <div class="calculator-container">
+          <input type="number" id="initialChange" placeholder="Valor inicial" data-key-placeholder="initValuePlaceholder">
+          <input type="number" id="finalChange" placeholder="Valor final" data-key-placeholder="finalValuePlaceholder">
+          <button onclick="changePercentage()" data-key="btnChangePercentage">Calcular Cambio %</button>
+          <div class="result" id="changeResult"></div>
+        </div>
+      </div>
+      
+      <!-- Convertir porcentaje a decimal -->
+      <div class="sub-calculator" id="percentToDecimal">
+        <h3 data-key="headingPercentToDecimal">Convertir porcentaje a decimal</h3>
+        <p data-key="descPercentToDecimal">
+          Convierte un porcentaje a su forma decimal, dividiendo el porcentaje entre 100. Esto es útil para realizar cálculos financieros.
+        </p>
+        <div class="calculator-container">
+          <input type="number" id="percDecimal" placeholder="Porcentaje (%)" data-key-placeholder="percInputDecimalPlaceholder">
+          <button onclick="percentToDecimal()" data-key="btnPercentToDecimal">Convertir a Decimal</button>
+          <div class="result" id="decimalResult"></div>
+        </div>
+      </div>
+      
+      <!-- Convertir fracciones a porcentajes -->
+      <div class="sub-calculator" id="fractionToPercent">
+        <h3 data-key="headingFractionToPercent">Convertir fracciones a porcentajes</h3>
+        <p data-key="descFractionToPercent">
+          Calcula el porcentaje equivalente de una fracción dividiendo el numerador entre el denominador y multiplicando por 100.
+        </p>
+        <div class="calculator-container">
+          <input type="number" id="numerator" placeholder="Numerador" data-key-placeholder="numeratorPlaceholder">
+          <input type="number" id="denom" placeholder="Denominador" data-key-placeholder="denomPlaceholder">
+          <button onclick="fractionToPercent()" data-key="btnFractionToPercent">Calcular Porcentaje</button>
+          <div class="result" id="fractionResult"></div>
+        </div>
+      </div>
+      
+      <!-- Calcular qué porcentaje del total es un número -->
+      <div class="sub-calculator" id="partOfTotal">
+        <h3 data-key="headingPartOfTotal">Calcular qué porcentaje del total es un número</h3>
+        <p data-key="descPartOfTotal">
+          Esta herramienta muestra qué porcentaje representa una parte respecto a un total. Útil para analizar datos demográficos o resultados de encuestas.
+        </p>
+        <div class="calculator-container">
+          <input type="number" id="partValue" placeholder="Parte" data-key-placeholder="partPlaceholder">
+          <input type="number" id="totalValue" placeholder="Total" data-key-placeholder="totalPlaceholder">
+          <button onclick="partOfTotal()" data-key="btnPartOfTotal">Calcular % del Total</button>
+          <div class="result" id="partTotalResult"></div>
+        </div>
+      </div>
+      
+      <!-- Calcular el número total si se conoce el porcentaje -->
+      <div class="sub-calculator" id="totalFromPercent">
+        <h3 data-key="headingTotalFromPercent">Calcular el número total si se conoce el porcentaje</h3>
+        <p data-key="descTotalFromPercent">
+          Si conoces la parte y el porcentaje que representa del total, esta herramienta te permite calcular el valor total.
+        </p>
+        <div class="calculator-container">
+          <input type="number" id="partForTotal" placeholder="Parte (X)" data-key-placeholder="partTotalPlaceholder">
+          <input type="number" id="percForTotal" placeholder="Porcentaje (%)" data-key-placeholder="percentageTotalPlaceholder">
+          <button onclick="totalFromPercent()" data-key="btnTotalFromPercent">Calcular Total</button>
+          <div class="result" id="totalResult"></div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Sección: Calculadora de IVA -->
+    <section id="iva">
+      <h2 data-key="headingIVA">Calculadora de IVA</h2>
+      <h3>¿Cómo calcular el IVA?</h3>
+      <p data-key="descIVA">
+        Esta calculadora te permite calcular el valor del IVA y el precio final a partir de un precio base y una tasa de IVA. Es muy útil para comercios y para calcular impuestos.
+      </p>
+      <div class="calculator-container">
+        <input type="number" id="basePriceIVA" placeholder="Precio base" data-key-placeholder="origPriceIVAPlaceholder">
+        <input type="number" id="ivaRate" placeholder="Tasa de IVA (%)" data-key-placeholder="ivaRatePlaceholder">
+        <button onclick="calculateIVA()" data-key="btnCalculateIVA">Calcular IVA</button>
+        <div class="result" id="ivaResult"></div>
+      </div>
+    </section>
+    
+    <!-- Sección: Calculadora de Interés Simple -->
+    <section id="interest">
+      <h2 data-key="headingInterest">Calculadora de Interés Simple</h2>
+      <h3>¿Cómo calcular el interés simple?</h3>
+      <p data-key="descInterest">
+        Utiliza esta herramienta para calcular el interés simple y el monto total a partir del capital, la tasa de interés y el tiempo (en años). Ideal para préstamos y análisis financieros.
+      </p>
+      <div class="calculator-container">
+        <input type="number" id="capital" placeholder="Capital" data-key-placeholder="capitalPlaceholder">
+        <input type="number" id="interestRate" placeholder="Tasa de interés (%)" data-key-placeholder="interestRatePlaceholder">
+        <input type="number" id="time" placeholder="Tiempo (años)" data-key-placeholder="timePlaceholder">
+        <button onclick="calculateInterest()" data-key="btnCalculateInterest">Calcular Interés</button>
+        <div class="result" id="interestResult"></div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Pie de página con logo de la empresa -->
+  <footer>
+    <div class="footer-content">
+      <img src="Images/logoweb-sinfondo.png" alt="Logo de la Empresa" class="footer-logo">
+      <p>© 2025 Calculadora Multifuncional. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+  
+  <!-- Enlace al archivo de script externo -->
+  <script src="script.js"></script>
+  <!-- Script para el menú hamburguesa y cierre del menú al hacer clic en un enlace -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const navContainer = document.getElementById('navContainer');
+      if (hamburgerBtn && navContainer) {
+        hamburgerBtn.addEventListener('click', function(){
+          navContainer.classList.toggle('active');
+        });
+      }
+      // Cerrar el menú hamburguesa al pulsar en un enlace (en dispositivos móviles)
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+          if (window.innerWidth <= 768) {
+            navContainer.classList.remove('active');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
